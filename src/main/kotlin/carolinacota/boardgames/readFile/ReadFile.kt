@@ -9,7 +9,7 @@ import java.io.FileInputStream
 class ReadFile(
     val filePath: String,
 ) {
-    fun call() = List<BoardGame>(7) { parseFile(it+1) }
+    fun call() = List<BoardGame>(rowsCount) { parseFile(it+1) }
 
     private fun parseFile(row: Int) : BoardGame {
         val sheet = getSheet()
@@ -25,5 +25,5 @@ class ReadFile(
         return workBook.getSheetAt(0)
     }
 
-    private fun getRowsCount() = getSheet().lastRowNum
+    private val rowsCount = getSheet().lastRowNum
 }

@@ -6,7 +6,7 @@ import org.springframework.core.io.ClassPathResource
 import org.springframework.util.ResourceUtils
 
 internal class ReadFileTest {
-    private val file = ClassPathResource("board-games.xlsx").file.toPath().toAbsolutePath().toString()
+    private val file = ClassPathResource("board-games-test.xlsx").file.toPath().toAbsolutePath().toString()
     private val readFile = ReadFile(file)
 
     @Test
