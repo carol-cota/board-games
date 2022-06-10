@@ -36,4 +36,10 @@ internal class ReadFileTest {
         assertThat(names).isEqualTo(result)
     }
 
+    @Test
+    fun `elements should have correct number of ratings`() {
+        val ratings = listOf(42055, 41643, 19217, 64864, 13468, 8392, 23061)
+        val result = readFile.call().map { it.numberOfRatings }
+        assertThat(ratings).isEqualTo(result)
+    }
 }
