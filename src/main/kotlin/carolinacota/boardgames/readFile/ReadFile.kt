@@ -5,6 +5,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.File
 import java.io.FileInputStream
+import java.lang.Math.round
 
 
 class ReadFile(
@@ -21,9 +22,9 @@ class ReadFile(
         val playTime = cell(row, 5).toIntCell()
         val minAge = cell(row, 6).toIntCell()
         val numberOfRatings = cell(row, 7).toIntCell()
-        val ratingAverage = cell(row, 8).toFloatCell()
-        val bggRank = cell(row, 9).toString()
-        val complexityAverage = cell(row, 10).toFloatCell()
+        val ratingAverage = cell(row, 8).toDoubleCell()
+        val bggRank = cell(row, 9).toIntCell()
+        val complexityAverage = cell(row, 10).toDoubleCell()
         val ownedGames = cell(row, 11).toIntCell()
         val mechanics = cell(row, 12).toString()
         val domains = cell(row, 13).toString()
@@ -43,7 +44,7 @@ class ReadFile(
 
     private fun XSSFCell.toIntCell() = numericCellValue.toInt()
 
-    private fun XSSFCell.toFloatCell() = numericCellValue.toFloat()
+    private fun XSSFCell.toDoubleCell() = "%.2f".format(numericCellValue).toDouble()
 
     private val titleMapping = mapOf(
         "id" to 0,
