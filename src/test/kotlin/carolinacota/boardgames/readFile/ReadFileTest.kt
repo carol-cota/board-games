@@ -45,8 +45,10 @@ internal class ReadFileTest {
 
     @Test
     fun `should have correct rating average`() {
-        val ratingAverage = listOf(8.79, 8.61, 8.66, 8.43, 8.70, 8.87, 8.43)
+//        val ratingAverage = listOf(8.79, 8.61, 8.66, 8.43, 8.70, 8.87, 8.43)
+        val ratingAverage = listOf(8.79244, 8.61278, 8.66337, 8.43254, 8.69649, 8.87363, 8.42517)
         val result = readFile.call().map { it.ratingAverage }
         assertThat(ratingAverage).isEqualTo(result)
     }
+
 }

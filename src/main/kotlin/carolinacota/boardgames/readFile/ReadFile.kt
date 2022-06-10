@@ -5,15 +5,14 @@ import org.apache.poi.xssf.usermodel.XSSFSheet
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.File
 import java.io.FileInputStream
-import java.lang.Math.round
 
 
 class ReadFile(
     private val filePath: String,
 ) {
-    fun call() = List<BoardGame>(rowsCount) { parseFile(it+1) }
+    fun call() = List<BoardGame>(rowsCount) { parseFile(it + 1) }
 
-    private fun parseFile(row: Int) : BoardGame {
+    private fun parseFile(row: Int): BoardGame {
         val id = cell(row, 0).toIntCell().toString()
         val name = cell(row, 1).toString()
         val yearPublished = cell(row, 2).toString()
@@ -24,14 +23,29 @@ class ReadFile(
         val numberOfRatings = cell(row, 7).toIntCell()
         val ratingAverage = cell(row, 8).toDoubleCell()
         val bggRank = cell(row, 9).toIntCell()
-        val complexityAverage = cell(row, 10).toDoubleCell()
+        val complexityAverage = cell(row, 10).toDouble2DigitCell()
         val ownedGames = cell(row, 11).toIntCell()
         val mechanics = cell(row, 12).toString()
         val domains = cell(row, 13).toString()
-        return BoardGame(id, name, yearPublished, minPlayers, maxPlayers, playTime, minAge, numberOfRatings, ratingAverage, bggRank, complexityAverage, ownedGames, mechanics, domains)
+        return BoardGame(
+            id,
+            name,
+            yearPublished,
+            minPlayers,
+            maxPlayers,
+            playTime,
+            minAge,
+            numberOfRatings,
+            ratingAverage,
+            bggRank,
+            complexityAverage,
+            ownedGames,
+            mechanics,
+            domains
+        )
     }
 
-    private fun getSheet() : XSSFSheet {
+    private fun getSheet(): XSSFSheet {
         val file = File(filePath)
         val inputStream = FileInputStream(file)
         val workBook = XSSFWorkbook(inputStream)
@@ -44,7 +58,9 @@ class ReadFile(
 
     private fun XSSFCell.toIntCell() = numericCellValue.toInt()
 
-    private fun XSSFCell.toDoubleCell() = "%.2f".format(numericCellValue).toDouble()
+    private fun XSSFCell.toDoubleCell() = numericCellValue
+
+    private fun XSSFCell.toDouble2DigitCell() = "%.2f".format(numericCellValue).toDouble()
 
     private val titleMapping = mapOf(
         "id" to 0,
