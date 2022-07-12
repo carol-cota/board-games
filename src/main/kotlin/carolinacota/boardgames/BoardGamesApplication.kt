@@ -8,17 +8,18 @@ import org.springframework.boot.runApplication
 import org.springframework.context.ApplicationContext
 
 @SpringBootApplication
-class BoardGamesApplication : CommandLineRunner{
+class BoardGamesApplication : CommandLineRunner {
 
     @Autowired
     private lateinit var applicationContext: ApplicationContext
 
     override fun run(vararg args: String?) {
         val readFile = applicationContext.getBean(ReadFile::class.java)
-        readFile.call()
+        print(readFile.call())
     }
 
 }
+
 fun main(args: Array<String>) {
-        runApplication<BoardGamesApplication>(*args)
+    runApplication<BoardGamesApplication>(*args)
 }
