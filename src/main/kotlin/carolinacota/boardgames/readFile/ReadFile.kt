@@ -1,5 +1,6 @@
 package carolinacota.boardgames.readFile
 
+import carolinacota.boardgames.domain.BoardGame
 import org.apache.poi.ss.usermodel.WorkbookFactory
 import org.apache.poi.xssf.usermodel.XSSFCell
 import org.apache.poi.xssf.usermodel.XSSFSheet

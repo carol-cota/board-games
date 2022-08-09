@@ -1,4 +1,4 @@
-package carolinacota.boardgames.readFile
+package carolinacota.boardgames.domain
 
 data class BoardGame(
     val id: String,

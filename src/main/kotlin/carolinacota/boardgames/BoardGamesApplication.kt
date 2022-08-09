@@ -1,6 +1,7 @@
 package carolinacota.boardgames
 
 import carolinacota.boardgames.readFile.ReadFile
+import carolinacota.boardgames.repository.BoardGameRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -15,9 +16,10 @@ class BoardGamesApplication : CommandLineRunner {
 
     override fun run(vararg args: String?) {
         val readFile = applicationContext.getBean(ReadFile::class.java)
-        print(readFile.call())
+        val boardGames = readFile.call()
+        val repository = applicationContext.getBean(BoardGameRepository::class.java)
+        repository.save(boardGames)
     }
-
 }
 
 fun main(args: Array<String>) {
