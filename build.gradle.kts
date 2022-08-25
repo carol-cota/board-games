@@ -23,6 +23,8 @@ dependencies {
     implementation("org.apache.poi:poi-ooxml:5.2.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.assertj:assertj-core:3.22.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+
 }
 
 tasks.withType<KotlinCompile> {
