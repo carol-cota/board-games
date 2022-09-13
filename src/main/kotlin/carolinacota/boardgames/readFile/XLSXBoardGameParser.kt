@@ -1,6 +1,7 @@
 package carolinacota.boardgames.readFile
 
 import carolinacota.boardgames.domain.BoardGame
+import carolinacota.boardgames.domain.BoardGameParser
 import org.apache.poi.ss.usermodel.WorkbookFactory
 import org.apache.poi.xssf.usermodel.XSSFCell
 import org.apache.poi.xssf.usermodel.XSSFSheet
@@ -9,11 +10,11 @@ import org.springframework.stereotype.Service
 import java.io.FileInputStream
 
 @Service
-class ReadFile(
+class XLSXBoardGameParser(
     @Value("\${boardGame.data}")
     private val filePath: String,
-) {
-    fun call(): List<BoardGame> {
+) : BoardGameParser {
+    override fun call(): List<BoardGame> {
         val sheet = getSheet()
         return List<BoardGame>(sheet.lastRowNum) { sheet.parseRow(it + 1) }
     }
