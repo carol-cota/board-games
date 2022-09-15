@@ -1,7 +1,6 @@
 package carolinacota.boardgames
 
-import carolinacota.boardgames.readFile.XLSXBoardGameParser
-import carolinacota.boardgames.repository.MemoryBoardGameRepository
+import carolinacota.boardgames.application.ImportBoardGameUseCase
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -15,10 +14,8 @@ class BoardGamesApplication : CommandLineRunner {
     private lateinit var applicationContext: ApplicationContext
 
     override fun run(vararg args: String?) {
-        val boardGameParser = applicationContext.getBean(XLSXBoardGameParser::class.java)
-        val boardGames = boardGameParser.call()
-        val repository = applicationContext.getBean(MemoryBoardGameRepository::class.java)
-        repository.save(boardGames)
+        val importBoardGameUseCase = applicationContext.getBean(ImportBoardGameUseCase::class.java)
+        importBoardGameUseCase.import()
     }
 }
 

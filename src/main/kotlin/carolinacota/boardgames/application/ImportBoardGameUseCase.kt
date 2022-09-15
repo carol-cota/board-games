@@ -1,9 +1,10 @@
 package carolinacota.boardgames.application
 
-import carolinacota.boardgames.domain.BoardGame
 import carolinacota.boardgames.domain.BoardGameParser
 import carolinacota.boardgames.domain.BoardGameRepository
+import org.springframework.stereotype.Service
 
+@Service
 class ImportBoardGameUseCase(
     private val boardGameRepository: BoardGameRepository,
     private val boardGameParser: BoardGameParser
