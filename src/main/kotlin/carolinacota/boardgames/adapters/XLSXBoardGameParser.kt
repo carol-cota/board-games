@@ -1,4 +1,4 @@
-package carolinacota.boardgames.readFile
+package carolinacota.boardgames.adapters
 
 import carolinacota.boardgames.domain.BoardGame
 import carolinacota.boardgames.domain.BoardGameParser

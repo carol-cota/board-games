@@ -2,7 +2,6 @@ package carolinacota.boardgames
 
 import carolinacota.boardgames.application.ImportBoardGameUseCase
 import carolinacota.boardgames.config.MemoryRepositoryConfiguration
-import carolinacota.boardgames.repository.MemoryBoardGameRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication

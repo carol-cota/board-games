@@ -1,5 +1,6 @@
-package carolinacota.boardgames.repository
+package carolinacota.boardgames.adapters
 
+import carolinacota.boardgames.adapters.MemoryBoardGameRepository
 import carolinacota.boardgames.domain.BoardGame
 import org.junit.jupiter.api.Assertions.assertIterableEquals
 import org.junit.jupiter.api.Test

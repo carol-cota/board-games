@@ -1,4 +1,4 @@
-package carolinacota.boardgames.readFile
+package carolinacota.boardgames.adapters
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
