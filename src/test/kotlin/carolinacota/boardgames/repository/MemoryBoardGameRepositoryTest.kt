@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Assertions.assertIterableEquals
 import org.junit.jupiter.api.Test
 
 internal class MemoryBoardGameRepositoryTest {
-    private val boardGameRepository = MemoryBoardGameRepository()
+    private val boardGameList = mutableListOf<BoardGame>()
+    private val boardGameRepository = MemoryBoardGameRepository(boardGameList)
 
     @Test
     fun `should add boardGame received to the memory`() {
@@ -13,6 +14,6 @@ internal class MemoryBoardGameRepositoryTest {
 
         boardGameRepository.save(list)
 
-        assertIterableEquals(MemoryBoardGameRepository.Companion.boardGameList, list)
+        assertIterableEquals(boardGameList, list)
     }
 }

@@ -1,6 +1,8 @@
 package carolinacota.boardgames
 
 import carolinacota.boardgames.application.ImportBoardGameUseCase
+import carolinacota.boardgames.config.MemoryRepositoryConfiguration
+import carolinacota.boardgames.repository.MemoryBoardGameRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -16,6 +18,8 @@ class BoardGamesApplication : CommandLineRunner {
     override fun run(vararg args: String?) {
         val importBoardGameUseCase = applicationContext.getBean(ImportBoardGameUseCase::class.java)
         importBoardGameUseCase.import()
+        val list = applicationContext.getBean(MemoryRepositoryConfiguration::class.java)
+        println(list.boardGameList())
     }
 }
 
